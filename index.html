@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>バイナリベクトルタイル表示サイト</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.css' rel='stylesheet' />
+<link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+table { border-collapse: collapse; }
+td { border: 1px solid #b9b9b9; }
+</style>
+</head>
+<body>
+<div id='map'></div>
+<script>
+map = new mapboxgl.Map({
+  container: 'map', style: 'https://hfu.github.io/gsi-tilejsons-gl-styles/style/ort.json',
+  center: [139.921875,  36.02928], zoom: 8.0, hash: true, maxZoom: 20
+});
+map.on('load', function () {
+  map.addSource('gsi-address', {
+    tiles: ['https://hfu.github.io/711351/{z}/{x}/{y}.mvt'],
+    attribution: "国土地理院による基盤地図情報（基本項目）のベクトルタイル提供実験データを加工して作成",
+    type: 'vector', maxzoom: 14
+  });
+
+  map.addLayer({
+    'id': 'gsi-fgd', 'type': 'line',
+    'source': 'gsi-fgd', 'source-layer': 'gsi-fgd',
+    'minzoom': 0, 'maxzoom': 14,
+    'layout': {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    'paint': {
+      'line-color': '#ff0000',
+      'line-width': 1
+    }
+  })
+});
+</script>
+</body>
+</html>

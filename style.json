@@ -1,0 +1,1 @@
+{"version":8,"name":"gsi-fgd","sources":{"gsi-address":{"type":"vector","tiles":"https://hfu.github.io/711351/{z}/{x}/{y}.mvt","minzoom":0,"maxzoom":14,"attribution":"国土地理院による基盤地図情報（基本項目）のベクトルタイル提供実験データを加工して作成","center":[139.133606,34.209531,16.0],"bounds":[138.815292,32.442861,139.860279,34.245899]}},"layers":[{"id":"gsi-fgd","type":"vector","source":"gsi-fgd"}]}
