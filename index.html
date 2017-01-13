@@ -16,29 +16,11 @@ body { margin:0; padding:0; }
 <div id='map'></div>
 <script>
 map = new mapboxgl.Map({
-  container: 'map', style: 'ort.json',
-  center: [139.7897, 33.1105], zoom: 14.5, hash: true, maxZoom: 18 
+  container: 'map', style: 'gsi-fgd.json',
+  center: [139.7897, 33.1105], zoom: 14.5, hash: true, maxZoom: 18
 });
 map.on('load', function () {
-  map.addSource('gsi-fgd', {
-    tiles: ['https://hfu.github.io/711351/{z}/{x}/{y}.mvt'],
-    attribution: "国土地理院による基盤地図情報（基本項目）のベクトルタイル提供実験データを加工して作成",
-    type: 'vector', maxzoom: 16 
-  });
 
-  map.addLayer({
-    'id': 'gsi-fgd', 'type': 'line',
-    'source': 'gsi-fgd', 'source-layer': 'gsi-fgd',
-    'minzoom': 0, 'maxzoom': 20,
-    'layout': {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-    'paint': {
-      'line-color': '#bbbbbb',
-      'line-width': 1
-    }
-  })
 });
 </script>
 </body>
