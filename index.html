@@ -22,7 +22,7 @@ map = new mapboxgl.Map({
   center: [139.7897, 33.1105], zoom: 14.5, hash: true, maxZoom: 20
 });
 map.on('load', function () {
-  map.addSource('gsi-address', {
+  map.addSource('gsi-fgd', {
     tiles: ['https://hfu.github.io/711351/{z}/{x}/{y}.mvt'],
     attribution: "国土地理院による基盤地図情報（基本項目）のベクトルタイル提供実験データを加工して作成",
     type: 'vector', maxzoom: 14
